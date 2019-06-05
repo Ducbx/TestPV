@@ -1,0 +1,18 @@
+﻿Build started 6/5/2019 1:16:33 PM.
+     1>Project "C:\Users\Ducbx\Documents\GitHub\TestViewRGB\TestViewRGB\TestViewRGB.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\TestViewRGB.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt TestViewRGBView.cpp
+         TestViewRGBView.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ducbx\Documents\GitHub\TestViewRGB\Debug\TestViewRGB.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\Ducbx\Documents\GitHub\TestViewRGB\Debug\TestViewRGB.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ducbx\Documents\GitHub\TestViewRGB\Debug\TestViewRGB.lib" /MACHINE:X86 Debug\TestViewRGB.res
+         Debug\MainFrm.obj
+         Debug\stdafx.obj
+         Debug\TestViewRGB.obj
+         Debug\TestViewRGBDoc.obj
+         Debug\TestViewRGBView.obj
+         TestViewRGB.vcxproj -> C:\Users\Ducbx\Documents\GitHub\TestViewRGB\Debug\TestViewRGB.exe
+     1>Done Building Project "C:\Users\Ducbx\Documents\GitHub\TestViewRGB\TestViewRGB\TestViewRGB.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.63
