@@ -7,176 +7,210 @@
 using namespace std;
 
 struct People {
-	string surname;
+	string sur_name;
 	string last_name;
 	int age;
 	string nationality;
 	string job;
-};
-typedef struct People PEOPLE;
 
-template <class Data>;
+	struct People()
+	{
+		this->sur_name = "";
+		this->last_name = "";
+		this->age = 0;
+		this->nationality = "";
+		this->job = "";
+	}
+
+	struct People(string surName, string lastName, int age, string nati, string job)
+	{
+		this->sur_name = surName;
+		this->last_name = lastName;
+		this->age = age;
+		this->nationality = nati;
+		this->job = job;
+	}
+
+	void OutputInfo()
+	{
+		cout << "\t" << sur_name << "\t" << last_name << "\t" << age << "\t" << nationality << "\t" << job;
+		cout << "\n";
+	}
+	
+	bool operator== (const People& people) const
+	{
+		return (people.sur_name.compare(this->sur_name)==0 && people.last_name.compare(this->last_name)==0);
+	}
+};
+
+
+template <class T>
 struct Node
 {
-	int iData;
-	struct Node *pNext;
-	struct Node *pPrev;
-};
-typedef struct Node NODE;
+	T data;
+	struct Node<T> *pNext;
+	struct Node<T> *pPrev;
 
-struct List
-{
-	NODE *pHead;
-	NODE *pTail;
-};
-typedef struct List LIST;
-
-void InitList(LIST &l)
-{
-	l.pHead = NULL;
-	l.pTail = NULL;
-}
-
-NODE* GetNode(int iValue)
-{
-	NODE *node = new NODE();
-	if (node == NULL)
+	static struct Node<T>* CreateNode(T value)
 	{
-		return NULL;
+		struct Node<T> *node = new Node<T>();
+		node->data = value;
+		node->pNext = NULL;
+		node->pPrev = NULL;
+		return node;
 	}
-	node->iData = iValue;
-	node->pNext = NULL;
-	node->pPrev = NULL;
-}
-
-void AddHead(LIST &l, NODE *p)
-{
-	if (l.pHead == NULL)
+	/*~Node()
 	{
-		l.pHead = p;
-		l.pTail = p;
-	}
-	else
-	{
-		p->pNext = l.pHead;
-		l.pHead->pPrev = p;
-		l.pHead = p;
-	}
-}
-
-void AddTail(LIST &l, NODE *p)
-{
-	if (l.pHead == NULL)
-	{
-		l.pHead = p;
-		l.pTail = p;
-	}
-	else
-	{
-		l.pTail->pNext = p;
-		p->pPrev = l.pTail;
-		l.pTail = p;
-	}
-}
-
-void Input(LIST &l, int n)
-{
-	InitList(l);
-	for (int i = 1; i <= n; i++)
-	{
-		int x;
-		cout << "\nNhap data:";
-		cin >> x;
-		NODE *p = GetNode(x);
-		AddTail(l, p);
-		//AddHead(l, p);
-	}
-}
-
-void Output(LIST l)
-{
-	for (NODE *p = l.pTail; p != NULL; p = p->pPrev)
-	//for (NODE *p = l.pHead; p != NULL; p = p->pNext)
-	{
-		cout << "\t" << p->iData;
-	}
-}
-
-
-
-void AddNodePAfterNodeQ(LIST &l, NODE *p, NODE *q)
-{
-	for (NODE *node = l.pHead; node != NULL; node = node->pNext)
-	{
-		if (node->iData == q->iData)
+		if (std::is_pointer<T>::value)
 		{
-			NODE *g = node->pNext;			//g==q
-			node->pNext = p;
-			p->pNext = g;
-			p->pPrev = node;
-			g->pPrev = p;
+			delete data;
+		}
+	}*/
+};
+
+template <class T>
+class CList
+{
+public:
+	Node<T> *m_pHead;
+	Node<T> *m_pTail;
+public:
+	CList();
+	~CList();
+	void AddHead(T data);
+	void AddTail(T data);
+	void AddRecordPAfterRecordQ(T p, T q);
+	void DeleteHead();
+	void DeleteTail();
+	void DeleteRecord(T value);
+	void ClearList();
+};
+
+template <class T>
+CList<T>::CList()
+{
+	m_pHead = NULL;
+	m_pTail = NULL;
+}
+
+template <class T>
+CList<T>::~CList()
+{
+	ClearList();
+}
+
+template <class T>
+void CList<T>::AddHead(T data)
+{
+	Node<T> *p = Node<T>::CreateNode(data);
+	if (m_pHead == NULL)
+	{
+		m_pHead = p;
+		m_pTail = p;
+	}
+	else
+	{
+		p->pNext = m_pHead;
+		m_pHead->pPrev = p;
+		m_pHead = p;
+	}
+}
+
+template <class T>
+void CList<T>::AddTail(T data)
+{
+	Node<T> *p = Node<T>::CreateNode(data);
+	if (m_pHead == NULL)
+	{
+		m_pHead = p;
+		m_pTail = p;
+	}
+	else
+	{
+		m_pTail->pNext = p;
+		p->pPrev = m_pTail;
+		m_pTail = p;
+	}
+}
+
+template <class T>
+void CList<T>::AddRecordPAfterRecordQ(T p, T q)
+{
+	Node<T> nodeP = Node<T>::CreateNode(p);
+	for (Node<T> *node = m_pHead; node != NULL; node = node->pNext)
+	{
+		if (node->data == q)
+		{
+			Node<T> *nodeG = node->pNext;
+			node->pNext = nodeP;
+			nodeP->pNext = nodeG;
+			nodeP->pPrev = node;
+			nodeG->pPrev = nodeP;
 			return;
 		}
 	}
 }
 
-void DeleteHead(LIST &l)
+template <class T>
+void CList<T>::DeleteHead()
 {
-	if (l.pHead == NULL)
+	if (m_pHead == NULL)
 	{
 		return;
 	}
-	NODE *p = l.pHead;
-	if (l.pHead->pNext == NULL){
-		l.pHead = NULL;
-		l.pTail = NULL;
+	Node<T> *p = m_pHead;
+	if (m_pHead->pNext == NULL){
+		m_pHead = NULL;
+		m_pTail = NULL;
 	}
 	else {
-		l.pHead->pNext->pPrev = NULL;
-		l.pHead = l.pHead->pNext;
+		m_pHead->pNext->pPrev = NULL;
+		m_pHead = m_pHead->pNext;
 	}
 	delete p;
 }
 
-void DeleteTail(LIST &l)
+template <class T>
+void CList<T>::DeleteTail()
 {
-	if (l.pHead == NULL)
+	if (m_pHead == NULL)
 	{
 		return;
 	}
-	NODE *p = l.pTail;
-	if (l.pHead->pNext == NULL){
-		l.pHead = NULL;
-		l.pTail = NULL;
+	Node<T> *p = m_pTail;
+	if (m_pHead->pNext == NULL){
+		m_pHead = NULL;
+		m_pTail = NULL;
 	}
 	else
 	{
-		l.pTail->pPrev->pNext = NULL;
-		l.pTail = l.pTail->pPrev;
+		m_pTail->pPrev->pNext = NULL;
+		m_pTail = m_pTail->pPrev;
 	}
 	delete p;
 }
 
-void DeleteRecord(LIST &l, int iValue)
+template <class T>
+void CList<T>::DeleteRecord(T value)
 {
-	if (l.pHead == NULL)
+	if (m_pHead == NULL)
 	{
 		return;
 	}
-	if (l.pHead->iData == iValue)
+	if (m_pHead->data == value)
 	{
-		DeleteHead(l);
+		DeleteHead();
 		return;
 	}
-	if (l.pTail->iData == iValue)
+	if (m_pTail->data == value)
 	{
-		DeleteTail(l);
+		DeleteTail();
 		return;
 	}
 
-	for (NODE *node = l.pHead->pNext; node->pNext != NULL; node = node->pNext)
+	for (Node<T> *node = m_pHead->pNext; node->pNext != NULL; node = node->pNext)
 	{
-		if (node->iData == iValue)
+		if (node->data == value)
 		{
 			node->pPrev->pNext = node->pNext;
 			node->pNext->pPrev = node->pPrev;
@@ -187,45 +221,73 @@ void DeleteRecord(LIST &l, int iValue)
 
 }
 
-void ClearList(LIST &l)
+template <class T>
+void CList<T>::ClearList()
 {
-	while (l.pHead != NULL)
+	while (m_pHead != NULL)
 	{
-		DeleteHead(l);
+		DeleteHead();
 	}
 }
 
+
+template <class T>
+void InputListPeople(CList<T> &list, int peopleCount)
+{
+	for (int i = 0; i < peopleCount; i++)
+	{
+		string surName = "SurName_" + to_string(i);
+		string lastName = "LastName_" + to_string(i);
+		int age = i;
+		string nationality = "Nationality_" + to_string(i);
+		string job = "job_" + to_string(i);
+		People* people = new People(surName, lastName, age, nationality, job);
+		list.AddTail(*people);
+	}
+}
+
+template <class T>
+void Output(const CList<T>& list)
+{
+	cout << "\nOutput\n";
+	for (Node<People> *p = list.m_pHead; p != NULL; p = p->pNext)
+	{
+		p->data.OutputInfo();
+	}
+}
+
+template <class T>
+void OutputInvert(const CList<T>& list)
+{
+	cout << "\nOutput Invert\n";
+	for (Node<People> *p = list.m_pTail; p != NULL; p = p->pPrev)
+	{
+		p->data.OutputInfo();
+	}
+}
+
+
 int main()
 {
-	LIST l;
-	int n;
-	cout << "\nNhap so phan tu: ";
-	cin >> n;
-	Input(l, n);
-	Output(l);
+	CList<People> list;
+	int peopleCount;
+	cout << "Nhap so luong crecord: ";
+	cin >> peopleCount;
+	InputListPeople(list, peopleCount);
 
-	/*int q;
-	cout << "\nNhap q:";
-	cin >> q;
-	NODE *Q = GetNode(q);
-	int p;
-	cout << "\nNhap p:";
-	cin >> p;
-	NODE *P = GetNode(p);*/
-	cout << "\n";
-	//AddNodePAfterNodeQ(l, P, Q);
-	//DeleteTail(l);
-	//DeleteHead(l);
-	//Output(l);
+	Output(list);
+	OutputInvert(list);
+	
+	string surName = "SurName_" + to_string(2);
+	string lastName = "LastName_" + to_string(2);
+	int age = 2;
+	string nationality = "Nationality_" + to_string(2);
+	string job = "job_" + to_string(2);
+	People* people = new People(surName, lastName, age, nationality, job);
 
-
-	int value;
-	cout << "\nNhap value: ";
-	cin >> value;
-	DeleteRecord(l, value);
-
-	//ClearList(l);
-	Output(l);
+	list.DeleteRecord(*people);
+	Output(list);
+	
 	system("pause");
 	return 0;
 }
