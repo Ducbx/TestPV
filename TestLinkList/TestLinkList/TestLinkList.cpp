@@ -136,7 +136,7 @@ void CList<T>::AddTail(T data)
 template <class T>
 void CList<T>::AddRecordPAfterRecordQ(T p, T q)
 {
-	Node<T> nodeP = Node<T>::CreateNode(p);
+	Node<T> *nodeP = Node<T>::CreateNode(p);
 	for (Node<T> *node = m_pHead; node != NULL; node = node->pNext)
 	{
 		if (node->data == q)
@@ -286,6 +286,23 @@ int main()
 	People* people = new People(surName, lastName, age, nationality, job);
 
 	list.DeleteRecord(*people);
+	Output(list);
+
+	surName = "SurName_" + to_string(1);
+	lastName = "LastName_" + to_string(1);
+	age = 2;
+	nationality = "Nationality_" + to_string(1);
+	job = "job_" + to_string(1);
+	People* Q = new People(surName, lastName, age, nationality, job);
+
+	surName = "SurName_" + to_string(21);
+	lastName = "LastName_" + to_string(21);
+	age = 21;
+	nationality = "Nationality_" + to_string(21);
+	job = "job_" + to_string(21);
+	People* P = new People(surName, lastName, age, nationality, job);
+
+	list.AddRecordPAfterRecordQ(*P,*Q);
 	Output(list);
 	
 	system("pause");
