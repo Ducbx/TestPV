@@ -1,0 +1,100 @@
+﻿  stdafx.cpp
+c:\program files (x86)\windows kits\8.1\include\um\gdiplusheaders.h(695): warning C4458: declaration of 'nativeCap' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdiplusheaders.h(710): note: see declaration of 'Gdiplus::CustomLineCap::nativeCap'
+c:\program files (x86)\windows kits\8.1\include\um\gdiplusimageattributes.h(364): warning C4458: declaration of 'nativeImageAttr' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdiplusimageattributes.h(378): note: see declaration of 'Gdiplus::ImageAttributes::nativeImageAttr'
+c:\program files (x86)\windows kits\8.1\include\um\gdiplusmatrix.h(296): warning C4458: declaration of 'nativeMatrix' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdiplusmatrix.h(310): note: see declaration of 'Gdiplus::Matrix::nativeMatrix'
+c:\program files (x86)\windows kits\8.1\include\um\gdiplusbrush.h(91): warning C4458: declaration of 'nativeBrush' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdiplusbrush.h(104): note: see declaration of 'Gdiplus::Brush::nativeBrush'
+c:\program files (x86)\windows kits\8.1\include\um\gdipluspen.h(462): warning C4458: declaration of 'nativePen' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdipluspen.h(476): note: see declaration of 'Gdiplus::Pen::nativePen'
+c:\program files (x86)\windows kits\8.1\include\um\gdipluspath.h(884): warning C4458: declaration of 'nativePath' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdipluspath.h(898): note: see declaration of 'Gdiplus::GraphicsPath::nativePath'
+c:\program files (x86)\windows kits\8.1\include\um\gdipluspath.h(1071): warning C4458: declaration of 'nativeIterator' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdipluspath.h(1085): note: see declaration of 'Gdiplus::GraphicsPathIterator::nativeIterator'
+c:\program files (x86)\windows kits\8.1\include\um\gdiplusregion.h(506): warning C4458: declaration of 'nativeRegion' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdiplusheaders.h(171): note: see declaration of 'Gdiplus::Region::nativeRegion'
+c:\program files (x86)\windows kits\8.1\include\um\gdiplusbitmap.h(536): warning C4458: declaration of 'nativeImage' hides class member
+  c:\program files (x86)\windows kits\8.1\include\um\gdiplusheaders.h(492): note: see declaration of 'Gdiplus::Image::nativeImage'
+  Util.cpp
+  ChartDataView.cpp
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartdataview.cpp(437): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartdataview.cpp(1172): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\utility(172): warning C4244: 'initializing': conversion from '__int64' to 'const int', possible loss of data
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartdataview.cpp(481): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<__int64,PointT<double>&,void,0>(_Other1 &&,_Other2) noexcept(false)' being compiled
+          with
+          [
+              _Kty=int,
+              _Ty=PointD,
+              _Other1=__int64,
+              _Other2=PointT<double> &
+          ]
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartdataview.cpp(481): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<__int64,PointT<double>&,void,0>(_Other1 &&,_Other2) noexcept(false)' being compiled
+          with
+          [
+              _Kty=int,
+              _Ty=PointD,
+              _Other1=__int64,
+              _Other2=PointT<double> &
+          ]
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\utility(172): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartdataview.cpp(1177): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<size_t&,PointD&,void,0>(_Other1,_Other2) noexcept(false)' being compiled
+          with
+          [
+              _Kty=int,
+              _Ty=PointD,
+              _Other1=size_t &,
+              _Other2=PointD &
+          ]
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartdataview.cpp(1177): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<size_t&,PointD&,void,0>(_Other1,_Other2) noexcept(false)' being compiled
+          with
+          [
+              _Kty=int,
+              _Ty=PointD,
+              _Other1=size_t &,
+              _Other2=PointD &
+          ]
+  DataLabel.cpp
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\datalabel.cpp(339): warning C4456: declaration of 'linePen' hides previous local declaration
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\datalabel.cpp(336): note: see declaration of 'linePen'
+  ChartsXMLSerializer.cpp
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartsxmlserializer.h(11): warning C4192: automatically excluding 'ISequentialStream' while importing type library 'msxml6.dll'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartsxmlserializer.h(11): warning C4192: automatically excluding '_FILETIME' while importing type library 'msxml6.dll'
+  ChartContainer.cpp
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(713): warning C4457: declaration of 'topY' hides function parameter
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(691): note: see declaration of 'topY'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(714): warning C4457: declaration of 'bottomY' hides function parameter
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(691): note: see declaration of 'bottomY'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(3086): warning C4456: declaration of 'selPntD' hides previous local declaration
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(3068): note: see declaration of 'selPntD'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(4899): warning C4311: '<function-style-cast>': pointer truncation from 'HMENU' to 'UINT'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(4899): warning C4302: '<function-style-cast>': truncation from 'HMENU' to 'UINT'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(4915): warning C4311: '<function-style-cast>': pointer truncation from 'HMENU' to 'UINT'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(4915): warning C4302: '<function-style-cast>': truncation from 'HMENU' to 'UINT'
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(5362): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(5364): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\utility(172): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(5359): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<size_t&,PointD&,void,0>(_Other1,_Other2) noexcept(false)' being compiled
+          with
+          [
+              _Kty=int,
+              _Ty=PointD,
+              _Other1=size_t &,
+              _Other2=PointD &
+          ]
+  c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chartcontainer.cpp(5359): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<size_t&,PointD&,void,0>(_Other1,_Other2) noexcept(false)' being compiled
+          with
+          [
+              _Kty=int,
+              _Ty=PointD,
+              _Other1=size_t &,
+              _Other2=PointD &
+          ]
+  Chart.cpp
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chart.cpp(204): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chart.cpp(262): warning C4267: 'argument': conversion from 'size_t' to 'INT', possible loss of data
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chart.cpp(267): warning C4267: 'argument': conversion from 'size_t' to 'INT', possible loss of data
+c:\users\ducbx\documents\visual studio 2015\projects\chartducbx\chartctrllib\chart.cpp(340): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  Generating Code...
+  ChartCtrlLib.vcxproj -> C:\Users\Ducbx\Documents\Visual Studio 2015\Projects\ChartDucbx\x64\Debug\ChartCtrlLib.lib
