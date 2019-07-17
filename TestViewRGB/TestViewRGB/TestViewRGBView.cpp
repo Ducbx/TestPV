@@ -58,13 +58,30 @@ void CTestViewRGBView::OnDraw(CDC* pDC)
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
+	
+	HDC hdcMem;
+	HGDIOBJ hBmpOld;
+	bmp.LoadBitmap(IDB_BITMAP_LAMBO);
+	//@@1> Create HDC for Bitmap
+	//bmp.Attach("Lambo.bmp");
+	hdcMem = CreateCompatibleDC(this->GetDC()->m_hDC);
+	hBmpOld = SelectObject(hdcMem, bmp.m_hObject);
 
-	// TODO: add draw code for native data here
-	CRect rc;
-	GetClientRect(&rc);
-	m_Image->LoadFromResource(::GetModuleHandle(NULL), IDB_BITMAP_LAMBO);
-	m_Image->Draw(pDC->m_hDC, rc.left, rc.top, m_Image->GetWidth(), m_Image->GetHeight(), 0, 0,
-		m_Image->GetWidth(), m_Image->GetHeight());
+	//@@2> Draw
+	if (!BitBlt(this->GetDC()->m_hDC, 0, 0, 500, 500, hdcMem, 0, 0, SRCCOPY))
+	{
+		// Error here
+		int x = 1;
+		int y = x;
+
+
+	}
+
+	//@@3> Free resources
+	bmp.Detach();
+	SelectObject(hdcMem, hBmpOld);
+	DeleteDC(hdcMem);
+	
 }
 
 

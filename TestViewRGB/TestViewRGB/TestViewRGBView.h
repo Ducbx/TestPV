@@ -17,7 +17,8 @@ public:
 
 // Operations
 public:
-	CImage m_Image;
+	CImage *m_Image;
+	CBitmap bmp;
 // Overrides
 public:
 	virtual void OnDraw(CDC* pDC);  // overridden to draw this view
